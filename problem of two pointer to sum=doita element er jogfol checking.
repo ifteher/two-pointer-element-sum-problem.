@@ -1,0 +1,48 @@
+///2 pointer is a technique to efficiently iterate over two sequences by maintaining two pointers that move towards each other to optimize complexity 0(n) avoiding 0(n*n).
+//problem of two pointer to x=a[i]+a[j] checking.
+#include<bits/stdc++.h>
+using namespace std;
+
+bool sum(int a[],int x,int n) {
+    int i = 0;
+    int j = n - 1;
+
+    while(i<j)
+    {
+        int sum=a[i]+a[j];
+     if(x==sum)
+        {
+        return true;
+        }
+
+    if(sum>x) j--;
+    else i++;
+    }
+    return false;
+}
+int main() {
+    int n,x;
+    cout<<"Enter size of Array:\n";
+    cin>>n;
+    cout<<"Enter the Array's element:\n";
+    int a[n+3];
+    for(int i=0;i<n;i++)
+    {
+       cin>>a[i];
+    }
+    cout << "Enter the sum:";
+    cin>>x;
+    sort(a,a+n);
+    if (sum(a,x,n))
+    {
+        cout << "x er value doita maner jogfoler soman hoyeche" << endl;
+    }
+    else
+    {
+        cout << "x er value doita maner jogfoler soman hoyni!" << endl;
+    }
+    return 0;
+}
+/*
+
+*/
